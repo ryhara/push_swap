@@ -6,16 +6,16 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 13:38:28 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 14:06:54 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/02 15:08:00 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void stack_free_all(t_stack *head)
+void	stack_free_all(t_stack *head)
 {
-	t_stack *stack_tmp;
-	t_stack *stack_del;
+	t_stack	*stack_tmp;
+	t_stack	*stack_del;
 
 	if (head == NULL)
 		return ;

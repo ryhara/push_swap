@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:18:34 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 14:22:45 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/02 15:02:58 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,21 @@
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	t_stack *head;
+	int		i;
+	t_stack	*head;
 
 	i = 1;
 	if (argc < 2)
 		return (0);
 	else
 	{
-		write(1, "test\n", 5);
+		if (check_args(argc, argv))
+			ft_putstr_fd("args OK!\n\n", 1);
+		else
+		{
+			ft_putstr_fd("Error\n", 2);
+			return (0);
+		}
 		head = stack_new(0);
 		stack_head_init(head);
 		while (i < argc)
@@ -39,7 +45,7 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q push_swap");
+__attribute__((destructor)) static void destructor()
+{
+	system("leaks -q push_swap");
 }

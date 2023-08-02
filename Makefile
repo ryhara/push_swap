@@ -6,7 +6,7 @@
 #    By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/02 10:11:33 by ryhara            #+#    #+#              #
-#    Updated: 2023/08/02 14:12:54 by ryhara           ###   ########.fr        #
+#    Updated: 2023/08/02 14:59:42 by ryhara           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME = push_swap
 SRCS =  main.c \
 		stack_new.c stack_head_init.c stack_add_back.c stack_add_front.c stack_free_all.c stack_print.c \
-		ft_atoi.c
+		ft_atoi.c check_args.c print.c
 OBJS = $(SRCS:%.c=$(OBJDIR)%.o)
 OBJDIR = ./obj/
 CC = cc

@@ -6,13 +6,13 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:45:23 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 14:19:10 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/02 15:05:57 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *stack_new(int number)
+t_stack	*stack_new(int number)
 {
 	t_stack	*new;
 
