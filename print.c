@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_new.c                                        :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/02 10:45:23 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 14:19:10 by ryhara           ###   ########.fr       */
+/*   Created: 2023/08/02 14:29:19 by ryhara            #+#    #+#             */
+/*   Updated: 2023/08/02 14:29:54 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *stack_new(int number)
+void	ft_putchar_fd(char c, int fd)
 {
-	t_stack	*new;
+	write(fd, &c, 1);
+}
 
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (new == NULL)
-		return (NULL);
-	new->number = number;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+void	ft_putstr_fd(char *s, int fd)
+{
+	while (*s)
+	{
+		write(fd, s, 1);
+		s++;
+	}
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		if (n <= -10)
+			ft_putnbr_fd((n / -10), fd);
+		n = n % 10 * -1;
+	}
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10 + '0'), fd);
 }

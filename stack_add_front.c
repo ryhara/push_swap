@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_new.c                                        :+:      :+:    :+:   */
+/*   stack_add_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/02 10:45:23 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 14:19:10 by ryhara           ###   ########.fr       */
+/*   Created: 2023/08/02 13:27:03 by ryhara            #+#    #+#             */
+/*   Updated: 2023/08/02 13:45:01 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *stack_new(int number)
+void stack_add_front(t_stack *head, t_stack *new)
 {
-	t_stack	*new;
-
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (new == NULL)
-		return (NULL);
-	new->number = number;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+	if (head == NULL || new == NULL)
+		return ;
+	new->next = head->next;
+	new->prev = head;
+	head->next->prev = new;
+	head->next = new;
 }
