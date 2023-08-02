@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:18:34 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 15:02:58 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/02 18:13:45 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 int	main(int argc, char **argv)
 {
 	int		i;
-	t_stack	*head;
+	t_stack	*head_a;
+	t_stack *head_b;
 
 	i = 1;
 	if (argc < 2)
@@ -30,22 +31,39 @@ int	main(int argc, char **argv)
 			ft_putstr_fd("Error\n", 2);
 			return (0);
 		}
-		head = stack_new(0);
-		stack_head_init(head);
+		head_a = stack_new(0);
+		stack_head_init(head_a);
+		head_b = stack_new(0);
+		stack_head_init(head_b);
 		while (i < argc)
 		{
-			stack_add_back(head, stack_new(ft_atoi(argv[i])));
+			stack_add_back(head_a, stack_new(ft_atoi(argv[i])));
 			i++;
 		}
-		stack_print(head);
-		stack_add_front(head, stack_new(5));
-		stack_print(head);
-		stack_free_all(head);
+		sa(head_a);
+		ft_putstr_fd("a :", 1);
+		stack_print(head_a);
+		ft_putstr_fd("b :", 1);
+		stack_print(head_b);
+		ft_putstr_fd("a :", 1);
+		stack_print(head_a);
+		ft_putstr_fd("b :", 1);
+		stack_print(head_b);
+		rra(head_a);
+		// pb(head_a, head_b);
+		// pb(head_a, head_b);
+		ft_putstr_fd("a :", 1);
+		stack_print(head_a);
+		ft_putstr_fd("b :", 1);
+		stack_print(head_b);
+		stack_free_all(head_a);
+		stack_free_all(head_b);
 	}
 	return (0);
 }
 
-__attribute__((destructor)) static void destructor()
+__attribute__((destructor))
+static void destructor()
 {
 	system("leaks -q push_swap");
 }
