@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:30:43 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 15:23:51 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/02 19:14:38 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void sa(t_stack *head_a)
 	stack_0->next = stack_1->next;
 	stack_1->next = stack_0;
 	stack_1->prev = head_a;
+	ft_putstr_fd("sa\n",1);
 }
 
 void sb(t_stack *head_b)
@@ -38,11 +39,12 @@ void sb(t_stack *head_b)
 	stack_0->next = stack_1->next;
 	stack_1->next = stack_0;
 	stack_1->prev = head_b;
-
+	ft_putstr_fd("sb\n",1);
 }
 
 void ss(t_stack *head_a, t_stack *head_b)
 {
 	sa(head_a);
 	sb(head_b);
+	ft_putstr_fd("ss\n",1);
 }

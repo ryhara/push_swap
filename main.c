@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:18:34 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 18:13:45 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/02 20:06:42 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,14 @@ int	main(int argc, char **argv)
 			stack_add_back(head_a, stack_new(ft_atoi(argv[i])));
 			i++;
 		}
-		sa(head_a);
 		ft_putstr_fd("a :", 1);
 		stack_print(head_a);
 		ft_putstr_fd("b :", 1);
 		stack_print(head_b);
-		ft_putstr_fd("a :", 1);
-		stack_print(head_a);
-		ft_putstr_fd("b :", 1);
-		stack_print(head_b);
-		rra(head_a);
-		// pb(head_a, head_b);
-		// pb(head_a, head_b);
+		if (argc == 4)
+			sort_3(head_a);
+		if (argc == 6)
+			sort_5(head_a, head_b);
 		ft_putstr_fd("a :", 1);
 		stack_print(head_a);
 		ft_putstr_fd("b :", 1);

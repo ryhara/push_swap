@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:13:38 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 16:22:19 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/02 20:51:07 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
+#include <stdio.h>
 
 typedef struct s_stack
 {
@@ -46,6 +47,9 @@ void rra(t_stack *head_a);
 void rrb(t_stack *head_b);
 void pa(t_stack *head_a, t_stack *head_b);
 void pb(t_stack *head_a, t_stack *head_b);
+
+void sort_3(t_stack *head_a);
+void sort_5(t_stack *head_a, t_stack *head_b);
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
