@@ -112,5 +112,5 @@ void	sort_select(t_stack *stack)
 	else if (size == 5)
 		sort_5(stack);
 	else
-		return ;
+		sort_many(stack);
 }

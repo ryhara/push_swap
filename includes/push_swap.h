@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:13:38 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/04 19:30:42 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/05 00:21:15 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define BOOLEAN int
 # define TRUE 1
 # define FALSE 0
+# define SORT_SIZE 4
 
 # include <limits.h>
 # include <stdlib.h>
@@ -47,6 +48,7 @@ t_node	*head_init(void);
 t_stack	*stack_init(void);
 void	head_print(t_node *head, char *head_name);
 void	stack_print(t_stack *stack);
+size_t	get_stack_size(t_node *head);
 
 void	head_free_all(t_node *head);
 void	stack_free_all(t_stack *stack);
@@ -62,7 +64,10 @@ void	rra(t_node *head_a);
 void	rrb(t_node *head_b);
 void	pa(t_node *head_a, t_node *head_b);
 void	pb(t_node *head_a, t_node *head_b);
+void	pa_min_and_ra(t_stack *stack, t_node *min);
 void	push_min_b(t_stack *stack, t_node *min);
+void	pa_harf(t_stack *stack);
+void	pb_harf(t_stack *stack);
 
 t_node	*get_min(t_node *head);
 t_node	*get_max(t_node *head);
@@ -73,6 +78,7 @@ void	sort_2(t_node *head_a);
 void	sort_3(t_node *head_a);
 void	sort_4(t_node *head_a, t_node *head_b);
 void	sort_5(t_stack *stack);
+void	sort_many(t_stack *stack);
 void	sort_select(t_stack *stack);
 
 void	ft_putchar_fd(char c, int fd);

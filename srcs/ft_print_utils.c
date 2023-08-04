@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 14:29:19 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/04 14:24:48 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/04 20:15:03 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ void	ft_putnbr_fd(int n, int fd)
 
 BOOLEAN	ft_puterr(void)
 {
-	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd("Error\n", STDERR_FILENO);
 	return (FALSE);
 }

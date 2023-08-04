@@ -48,7 +48,7 @@ void	head_print(t_node *head, char *head_name)
 	while (tmp != head)
 	{
 		ft_putchar_fd(' ', STDOUT_FILENO);
-		ft_putnbr_fd(tmp->num, STDOUT_FILENO);
+		ft_putnbr_fd(tmp->index, STDOUT_FILENO);
 		tmp = tmp->next;
 	}
 	ft_putchar_fd('\n', STDOUT_FILENO);
@@ -58,4 +58,19 @@ void	stack_print(t_stack *stack)
 {
 	head_print(stack->head_a, "a:");
 	head_print(stack->head_b, "b:");
+}
+
+size_t	get_stack_size(t_node *head)
+{
+	t_node	*tmp;
+	size_t	count;
+
+	tmp = head->next;
+	count = 0;
+	while (tmp != head)
+	{
+		count++;
+		tmp = tmp->next;
+	}
+	return (count);
 }

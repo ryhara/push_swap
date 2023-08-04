@@ -60,9 +60,9 @@ BOOLEAN	args_two_exe(char **argv)
 	if (!stack)
 		return (ft_puterr_with_free(stack));
 	coordinate_compress(stack->head_a);
-	stack_print(stack);
+	// stack_print(stack);
 	sort_select(stack);
-	stack_print(stack);
+	// stack_print(stack);
 	stack_free_all(stack);
 	return (TRUE);
 }

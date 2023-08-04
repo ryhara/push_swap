@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:29:58 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/04 19:32:13 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/04 22:57:26 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,30 @@ void	push_min_b(t_stack *stack, t_node *min)
 		while (head->next != min)
 			ra(head);
 		pb(stack->head_a, stack->head_b);
+	}
+}
+
+void	pa_min_and_ra(t_stack *stack, t_node *min)
+{
+	t_node	*head;
+	size_t	pos;
+	size_t	size_b;
+
+	head = stack->head_b;
+	pos = get_pos(head, min);
+	size_b = get_stack_size(stack->head_b);
+	if (pos > (size_b / 2))
+	{
+		while (head->next != min)
+			rrb(head);
+		pa(stack->head_a, stack->head_b);
+		ra(stack->head_a);
+	}
+	else
+	{
+		while (head->next != min)
+			rb(head);
+		pa(stack->head_a, stack->head_b);
+		ra(stack->head_a);
 	}
 }

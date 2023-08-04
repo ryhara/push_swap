@@ -55,7 +55,7 @@ t_node	*get_next_min(t_node *head, t_node *min)
 	tmp = next_min->next;
 	while (tmp != head)
 	{
-		if ((next_min->num > tmp->num) && (tmp->num > min->num))
+		if ((next_min->index > tmp->index) && (tmp->index > min->index))
 			next_min = tmp;
 		tmp = tmp->next;
 	}

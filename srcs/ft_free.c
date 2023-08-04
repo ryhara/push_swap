@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 13:38:28 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/04 13:06:18 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/04 20:15:14 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void	stack_free_all(t_stack *stack)
 BOOLEAN	ft_puterr_with_free(t_stack *stack)
 {
 	stack_free_all(stack);
-	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd("Error\n", STDERR_FILENO);
 	return (FALSE);
 }
