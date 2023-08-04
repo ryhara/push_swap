@@ -6,11 +6,11 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:18:34 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 20:06:42 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/04 10:11:37 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 #include <stdio.h>
 
 int	main(int argc, char **argv)

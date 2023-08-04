@@ -6,11 +6,11 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 14:34:43 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 15:08:27 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/04 10:11:23 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 BOOLEAN	check_int(int ans, char sign, char *s)
 {

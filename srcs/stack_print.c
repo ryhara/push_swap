@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_add_back.c                                   :+:      :+:    :+:   */
+/*   stack_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/02 13:31:54 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 15:04:57 by ryhara           ###   ########.fr       */
+/*   Created: 2023/08/02 14:03:25 by ryhara            #+#    #+#             */
+/*   Updated: 2023/08/04 10:12:30 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void	stack_add_back(t_stack *head, t_stack *new)
+void	stack_print(t_stack *head)
 {
-	if (head == NULL || new == NULL)
-		return ;
-	new->next = head;
-	new->prev = head->prev;
-	head->prev->next = new;
-	head->prev = new;
+	t_stack	*stack_tmp;
+
+	stack_tmp = head->next;
+	while (stack_tmp != head)
+	{
+		ft_putnbr_fd(stack_tmp->number, 1);
+		ft_putchar_fd(' ', 1);
+		stack_tmp = stack_tmp->next;
+	}
+	ft_putchar_fd('\n', 1);
 }

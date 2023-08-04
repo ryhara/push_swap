@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_print.c                                      :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/02 14:03:25 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 15:06:13 by ryhara           ###   ########.fr       */
+/*   Created: 2023/08/02 14:29:19 by ryhara            #+#    #+#             */
+/*   Updated: 2023/08/04 10:11:41 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void	stack_print(t_stack *head)
+void	ft_putchar_fd(char c, int fd)
 {
-	t_stack	*stack_tmp;
+	write(fd, &c, 1);
+}
 
-	stack_tmp = head->next;
-	while (stack_tmp != head)
+void	ft_putstr_fd(char *s, int fd)
+{
+	while (*s)
 	{
-		ft_putnbr_fd(stack_tmp->number, 1);
-		ft_putchar_fd(' ', 1);
-		stack_tmp = stack_tmp->next;
+		write(fd, s, 1);
+		s++;
 	}
-	ft_putchar_fd('\n', 1);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		if (n <= -10)
+			ft_putnbr_fd((n / -10), fd);
+		n = n % 10 * -1;
+	}
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10 + '0'), fd);
 }

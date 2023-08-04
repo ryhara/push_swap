@@ -6,11 +6,11 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:30:17 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 20:56:58 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/04 10:11:48 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void rra(t_stack *head_a)
 {

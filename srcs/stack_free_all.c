@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_add_front.c                                  :+:      :+:    :+:   */
+/*   stack_free_all.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/02 13:27:03 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 15:05:00 by ryhara           ###   ########.fr       */
+/*   Created: 2023/08/02 13:38:28 by ryhara            #+#    #+#             */
+/*   Updated: 2023/08/04 10:12:19 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void	stack_add_front(t_stack *head, t_stack *new)
+void	stack_free_all(t_stack *head)
 {
-	if (head == NULL || new == NULL)
+	t_stack	*stack_tmp;
+	t_stack	*stack_del;
+
+	if (head == NULL)
 		return ;
-	new->next = head->next;
-	new->prev = head;
-	head->next->prev = new;
-	head->next = new;
+	stack_tmp = head->next;
+	while (stack_tmp != head)
+	{
+		stack_del = stack_tmp;
+		head->next = stack_tmp->next;
+		stack_tmp->next->prev = head;
+		stack_tmp = stack_tmp->next;
+		free(stack_del);
+	}
+	free(head);
 }

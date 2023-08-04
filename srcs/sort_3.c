@@ -6,11 +6,11 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 18:51:12 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 19:32:32 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/04 10:12:01 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void sort_3(t_stack *head_a)
 {
@@ -39,5 +39,5 @@ void sort_3(t_stack *head_a)
 	else if (top->number < mid->number && top->number > bottom->number)
 		rra(head_a);
 	else
-		;
+		return ;
 }

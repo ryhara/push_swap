@@ -6,11 +6,11 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 13:23:22 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 15:07:34 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/04 10:11:32 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static	int	check_overflow(long num, const char *nptr, int sign)
 {
