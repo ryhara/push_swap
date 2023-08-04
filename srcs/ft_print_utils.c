@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   ft_print_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 14:29:19 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/04 10:11:41 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/04 14:24:48 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,10 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n >= 10)
 		ft_putnbr_fd(n / 10, fd);
 	ft_putchar_fd((n % 10 + '0'), fd);
+}
+
+BOOLEAN	ft_puterr(void)
+{
+	ft_putstr_fd("Error\n", 2);
+	return (FALSE);
 }

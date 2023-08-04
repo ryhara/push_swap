@@ -6,19 +6,19 @@
 #    By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/02 10:11:33 by ryhara            #+#    #+#              #
-#    Updated: 2023/08/04 10:15:33 by ryhara           ###   ########.fr        #
+#    Updated: 2023/08/04 19:02:34 by ryhara           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 SRCDIR = ./srcs/
-SRC =  main.c \
-		stack_new.c stack_head_init.c stack_add_back.c stack_add_front.c stack_free_all.c stack_print.c \
-		ft_atoi.c check_args.c print.c \
-		sort_3.c sort_5.c\
-		swap.c rotate.c reverse_rotate.c push.c
+SRC =   main.c \
+		stack.c node.c ft_free.c \
+		swap.c rotate.c reverse_rotate.c push.c \
+		sort_utils.c sort.c \
+		check_args.c args_two_exe.c args_multi_exe.c \
+		ft_atoi.c ft_split.c ft_strlcpy.c ft_print_utils.c
 SRCS = $(addprefix $(SRCDIR), $(SRC))
-# OBJS = $(SRCS:%.c=$(OBJDIR)%.o)
 OBJDIR = ./obj/
 OBJS = $(addprefix $(OBJDIR), $(SRC:%.c=%.o))
 CC = cc

@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:13:38 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/02 20:51:07 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/04 19:30:42 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,43 +20,73 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include <stdio.h>
+# include <stdio.h>
+
+typedef struct s_node
+{
+	int				num;
+	size_t			index;
+	struct s_node	*next;
+	struct s_node	*prev;
+}					t_node;
 
 typedef struct s_stack
 {
-	int				number;
-	struct s_stack	*next;
-	struct s_stack	*prev;
+	size_t	size;
+	t_node	*head_a;
+	t_node	*head_b;
 }					t_stack;
 
-void	stack_head_init(t_stack *head);
-t_stack	*stack_new(int number);
-void	stack_add_front(t_stack *head, t_stack *new);
-void	stack_add_back(t_stack *head, t_stack *new);
-void	stack_free_all(t_stack *head);
-void	stack_print(t_stack *head);
+t_node	*node_new(int num);
+void	node_add_front(t_node *head, t_node *new);
+void	node_add_back(t_node *head, t_node *new);
+void	coordinate_compress(t_node *head_a);
+t_stack	*node_list_init(size_t argc, char **argv, size_t start);
 
-void ss(t_stack *head_a, t_stack *head_b);
-void sa(t_stack *head_a);
-void sb(t_stack *head_b);
-void rr(t_stack *head_a, t_stack *head_b);
-void ra(t_stack *head_a);
-void rb(t_stack *head_b);
-void rrr(t_stack *head_a, t_stack *head_b);
-void rra(t_stack *head_a);
-void rrb(t_stack *head_b);
-void pa(t_stack *head_a, t_stack *head_b);
-void pb(t_stack *head_a, t_stack *head_b);
+t_node	*head_init(void);
+t_stack	*stack_init(void);
+void	head_print(t_node *head, char *head_name);
+void	stack_print(t_stack *stack);
 
-void sort_3(t_stack *head_a);
-void sort_5(t_stack *head_a, t_stack *head_b);
+void	head_free_all(t_node *head);
+void	stack_free_all(t_stack *stack);
+
+void	ss(t_node *head_a, t_node *head_b);
+void	sa(t_node *head_a);
+void	sb(t_node *head_b);
+void	rr(t_node *head_a, t_node *head_b);
+void	ra(t_node *head_a);
+void	rb(t_node *head_b);
+void	rrr(t_node *head_a, t_node *head_b);
+void	rra(t_node *head_a);
+void	rrb(t_node *head_b);
+void	pa(t_node *head_a, t_node *head_b);
+void	pb(t_node *head_a, t_node *head_b);
+void	push_min_b(t_stack *stack, t_node *min);
+
+t_node	*get_min(t_node *head);
+t_node	*get_max(t_node *head);
+t_node	*get_next_min(t_node *head, t_node *min);
+size_t	get_pos(t_node *head, t_node *target);
+BOOLEAN	check_sorted(t_node *head);
+void	sort_2(t_node *head_a);
+void	sort_3(t_node *head_a);
+void	sort_4(t_node *head_a, t_node *head_b);
+void	sort_5(t_stack *stack);
+void	sort_select(t_stack *stack);
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+BOOLEAN	ft_puterr(void);
+BOOLEAN	ft_puterr_with_free(t_stack *stack);
 int		ft_atoi(const char *nptr);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+char	**ft_split(char const *s, char c);
 
-BOOLEAN	check_int(int ans, char sign, char *s);
-BOOLEAN	check_args(int argc, char **argv);
+BOOLEAN	check_args(size_t size, char **num_list, size_t start);
+BOOLEAN	check_duplicate(int argc, char **argv);
+BOOLEAN	args_two_exe(char **argv);
+BOOLEAN	args_multi_exe(int argc, char **argv);
 
 #endif
