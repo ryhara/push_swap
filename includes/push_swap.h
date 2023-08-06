@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:13:38 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/05 00:21:15 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/06 13:19:08 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define BOOLEAN int
 # define TRUE 1
 # define FALSE 0
-# define SORT_SIZE 4
+# define SORT_SIZE 3
 
 # include <limits.h>
 # include <stdlib.h>
@@ -66,8 +66,8 @@ void	pa(t_node *head_a, t_node *head_b);
 void	pb(t_node *head_a, t_node *head_b);
 void	pa_min_and_ra(t_stack *stack, t_node *min);
 void	push_min_b(t_stack *stack, t_node *min);
-void	pa_harf(t_stack *stack);
-void	pb_harf(t_stack *stack);
+void	pa_harf_min(t_stack *stack);
+void	pb_harf_min(t_stack *stack);
 
 t_node	*get_min(t_node *head);
 t_node	*get_max(t_node *head);
