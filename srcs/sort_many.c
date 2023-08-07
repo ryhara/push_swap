@@ -56,6 +56,35 @@ void sort_all(t_stack *stack)
 	stack_print(stack);
 }
 
+// 半分bに移す
+// １または最小値＋１だったら下に回す
+// 半分ずつaに戻すマックスとミンの間で分ける
+// aのボトム＋１だったらAの下に回す
+//
+
+void	sort_idea(t_stack *stack)
+{
+	t_node	*tmp;
+	// t_node	*min;
+	// t_node	*min_a;
+	// t_node	*max;
+	size_t	size;
+	int count = 3;
+	// size_t	new_size;
+
+	tmp = stack->head_b->next;
+	size = get_stack_size(stack->head_b);
+	while (size > SORT_SIZE)
+	{
+		if (count-- < 0)
+			break ;
+		pa_harf_min(stack);
+		size = get_stack_size(stack->head_b);
+		stack_print(stack);
+
+	}
+}
+
 void	sort_many(t_stack *stack)
 {
 	t_node	*head_a;
@@ -64,7 +93,9 @@ void	sort_many(t_stack *stack)
 	if (check_sorted(head_a))
 		return ;
 	pb_harf_min(stack);
-	sort_all(stack);
+	stack_print(stack);
+	// sort_all(stack);
+	sort_idea(stack);
 }
 
 void	pb_harf_min(t_stack *stack)
@@ -92,8 +123,6 @@ void	pb_harf_min(t_stack *stack)
 void	pa_harf_min(t_stack *stack)
 {
 	t_node	*tmp;
-	t_node	*max;
-	t_node	*min;
 	size_t	size;
 	size_t	count;
 
@@ -103,16 +132,7 @@ void	pa_harf_min(t_stack *stack)
 	while (count <= (size / 2) - 1)
 	{
 		tmp = stack->head_b->next;
-		// size = get_stack_size(stack->head_b);
-		max = get_max(stack->head_b);
-		min = get_min(stack->head_b);
-		if (tmp->index == min->index)
-		{
-			pa(stack->head_a, stack->head_b);
-			ra(stack->head_a);
-			count++;
-		}
-		else if (tmp->index > (size / 2) && max == tmp)
+		if (tmp->index <= (size / 2))
 		{
 			pa(stack->head_a, stack->head_b);
 			count++;
@@ -121,3 +141,36 @@ void	pa_harf_min(t_stack *stack)
 			rb(stack->head_b);
 	}
 }
+
+// void	pa_harf_min(t_stack *stack)
+// {
+// 	t_node	*tmp;
+// 	t_node	*max;
+// 	t_node	*min;
+// 	size_t	size;
+// 	size_t	count;
+
+// 	tmp = stack->head_b->next;
+// 	size = get_stack_size(stack->head_b);
+// 	count = 0;
+// 	while (count <= (size / 2) - 1)
+// 	{
+// 		tmp = stack->head_b->next;
+// 		// size = get_stack_size(stack->head_b);
+// 		max = get_max(stack->head_b);
+// 		min = get_min(stack->head_b);
+// 		if (tmp->index == min->index)
+// 		{
+// 			pa(stack->head_a, stack->head_b);
+// 			ra(stack->head_a);
+// 			count++;
+// 		}
+// 		else if (tmp->index > (size / 2) && max == tmp)
+// 		{
+// 			pa(stack->head_a, stack->head_b);
+// 			count++;
+// 		}
+// 		else
+// 			rb(stack->head_b);
+// 	}
+// }
