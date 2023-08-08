@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:30:32 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/04 13:09:34 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/08 14:49:09 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	ra(t_node *head_a)
 
 	top = head_a->next;
 	bottom = head_a->prev;
+	if (top == bottom)
+		return ;
 	head_a->next = top->next;
 	head_a->prev = top;
 	bottom->next = top;
@@ -34,6 +36,8 @@ void	rb(t_node *head_b)
 
 	top = head_b->next;
 	bottom = head_b->prev;
+	if (top == bottom)
+		return ;
 	head_b->next = top->next;
 	head_b->prev = top;
 	bottom->next = top;

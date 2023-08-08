@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:13:38 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/06 13:19:08 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/08 09:29:22 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_node
 typedef struct s_stack
 {
 	size_t	size;
+	size_t	size_a;
+	size_t	size_b;
 	t_node	*head_a;
 	t_node	*head_b;
 }					t_stack;
@@ -66,12 +68,13 @@ void	pa(t_node *head_a, t_node *head_b);
 void	pb(t_node *head_a, t_node *head_b);
 void	pa_min_and_ra(t_stack *stack, t_node *min);
 void	push_min_b(t_stack *stack, t_node *min);
-void	pa_harf_min(t_stack *stack);
-void	pb_harf_min(t_stack *stack);
+// void	pa_harf_min(t_stack *stack);
+// void	pb_harf_min(t_stack *stack);
 
 t_node	*get_min(t_node *head);
 t_node	*get_max(t_node *head);
 t_node	*get_next_min(t_node *head, t_node *min);
+t_node	*get_next_max(t_node *head, t_node *max);
 size_t	get_pos(t_node *head, t_node *target);
 BOOLEAN	check_sorted(t_node *head);
 void	sort_2(t_node *head_a);
