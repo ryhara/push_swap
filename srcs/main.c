@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:18:34 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/08 14:29:22 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/10 13:37:11 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,3 @@ int	main(int argc, char **argv)
 // {
 // 	system("leaks -q push_swap");
 // }
-
-// printf("This code is in file: %s, line: %d\n", __FILE__, __LINE__);

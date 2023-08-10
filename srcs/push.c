@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:29:58 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/04 22:57:26 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/10 12:56:29 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	pa(t_node *head_a, t_node *head_b)
 	head_b->next = tmp->next;
 	tmp->next->prev = head_b;
 	node_add_front(head_a, tmp);
-	ft_putstr_fd("pa\n", 1);
+	ft_putstr_fd("pa\n", STDOUT_FILENO);
 }
 
 void	pb(t_node *head_a, t_node *head_b)
@@ -31,7 +31,7 @@ void	pb(t_node *head_a, t_node *head_b)
 	head_a->next = tmp->next;
 	tmp->next->prev = head_a;
 	node_add_front(head_b, tmp);
-	ft_putstr_fd("pb\n", 1);
+	ft_putstr_fd("pb\n", STDOUT_FILENO);
 }
 
 void	push_min_b(t_stack *stack, t_node *min)
@@ -55,27 +55,43 @@ void	push_min_b(t_stack *stack, t_node *min)
 	}
 }
 
-void	pa_min_and_ra(t_stack *stack, t_node *min)
+void	pa_middle_and_small(t_stack *stack)
 {
-	t_node	*head;
-	size_t	pos;
-	size_t	size_b;
+	size_t	count;
 
-	head = stack->head_b;
-	pos = get_pos(head, min);
-	size_b = get_stack_size(stack->head_b);
-	if (pos > (size_b / 2))
+	count = 0;
+	while (count < stack->size)
 	{
-		while (head->next != min)
-			rrb(head);
-		pa(stack->head_a, stack->head_b);
-		ra(stack->head_a);
+		if (stack->head_a->next->index <= stack->size / 3)
+		{
+			pb(stack->head_a, stack->head_b);
+			rb(stack->head_b);
+		}
+		else if (stack->head_a->next->index <= stack->size / 3 * 2)
+			pb(stack->head_a, stack->head_b);
+		else
+			ra(stack->head_a);
+		count++;
 	}
-	else
+}
+
+void	pa_remain_max_five(t_stack *stack)
+{
+	int		count;
+	t_node	*max;
+
+	count = 0;
+	max = get_max(stack->head_a);
+	while (count++ < 4)
+		max = get_next_max(stack->head_a, max);
+	pa_middle_and_small(stack);
+	stack->size_a = get_stack_size(stack->head_a);
+	while (stack->size_a > 5)
 	{
-		while (head->next != min)
-			rb(head);
-		pa(stack->head_a, stack->head_b);
-		ra(stack->head_a);
+		if (stack->head_a->next->index < max->index)
+			pb(stack->head_a, stack->head_b);
+		else
+			ra(stack->head_a);
+		stack->size_a = get_stack_size(stack->head_a);
 	}
 }

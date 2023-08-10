@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:13:38 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/08 09:29:22 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/10 13:31:18 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,9 @@ void	rra(t_node *head_a);
 void	rrb(t_node *head_b);
 void	pa(t_node *head_a, t_node *head_b);
 void	pb(t_node *head_a, t_node *head_b);
-void	pa_min_and_ra(t_stack *stack, t_node *min);
 void	push_min_b(t_stack *stack, t_node *min);
-// void	pa_harf_min(t_stack *stack);
-// void	pb_harf_min(t_stack *stack);
+void	pa_middle_and_small(t_stack *stack);
+void	pa_remain_max_five(t_stack *stack);
 
 t_node	*get_min(t_node *head);
 t_node	*get_max(t_node *head);
@@ -77,6 +76,7 @@ t_node	*get_next_min(t_node *head, t_node *min);
 t_node	*get_next_max(t_node *head, t_node *max);
 size_t	get_pos(t_node *head, t_node *target);
 BOOLEAN	check_sorted(t_node *head);
+void	sort_asc(t_stack *stack);
 void	sort_2(t_node *head_a);
 void	sort_3(t_node *head_a);
 void	sort_4(t_node *head_a, t_node *head_b);
@@ -84,18 +84,18 @@ void	sort_5(t_stack *stack);
 void	sort_many(t_stack *stack);
 void	sort_select(t_stack *stack);
 
-void	ft_putchar_fd(char c, int fd);
+t_node	*insert_count(t_stack *stack);
+void	insert(t_stack *stack, t_node *node);
+BOOLEAN	check_args(size_t size, char **num_list, size_t start);
+BOOLEAN	check_duplicate(int argc, char **argv);
+BOOLEAN	args_two_exe(char **argv);
+BOOLEAN	args_multi_exe(int argc, char **argv);
+
 void	ft_putstr_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
 BOOLEAN	ft_puterr(void);
 BOOLEAN	ft_puterr_with_free(t_stack *stack);
 int		ft_atoi(const char *nptr);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 char	**ft_split(char const *s, char c);
-
-BOOLEAN	check_args(size_t size, char **num_list, size_t start);
-BOOLEAN	check_duplicate(int argc, char **argv);
-BOOLEAN	args_two_exe(char **argv);
-BOOLEAN	args_multi_exe(int argc, char **argv);
 
 #endif

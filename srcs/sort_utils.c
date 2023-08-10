@@ -43,3 +43,22 @@ size_t	get_pos(t_node *head, t_node *target)
 	}
 	return (pos);
 }
+
+void	sort_asc(t_stack *stack)
+{
+	t_node	*min_a;
+	size_t	count;
+
+	min_a = get_min(stack->head_a);
+	count = get_pos(stack->head_a, min_a);
+	if (count > stack->size / 2)
+	{
+		while (stack->head_a->next != min_a)
+			rra(stack->head_a);
+	}
+	else
+	{
+		while (stack->head_a->next != min_a)
+			ra(stack->head_a);
+	}
+}

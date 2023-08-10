@@ -62,9 +62,7 @@ BOOLEAN	args_two_exe(char **argv)
 	coordinate_compress(stack->head_a);
 	stack->size_a = stack->size;
 	stack->size_b = 0;
-	// stack_print(stack);
 	sort_select(stack);
-	// stack_print(stack);
 	stack_free_all(stack);
 	return (TRUE);
 }
