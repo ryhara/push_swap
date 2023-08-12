@@ -47,11 +47,11 @@ void	head_print(t_node *head, char *head_name)
 	ft_putstr_fd(head_name, STDOUT_FILENO);
 	while (tmp != head)
 	{
-		ft_putchar_fd(' ', STDOUT_FILENO);
+		ft_putstr_fd(" ", STDOUT_FILENO);
 		ft_putnbr_fd(tmp->index, STDOUT_FILENO);
 		tmp = tmp->next;
 	}
-	ft_putchar_fd('\n', STDOUT_FILENO);
+	ft_putstr_fd("\n", STDOUT_FILENO);
 }
 
 void	stack_print(t_stack *stack)

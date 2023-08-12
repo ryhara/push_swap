@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 14:29:19 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/10 13:31:05 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/12 12:05:42 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,20 @@ void	ft_putstr_fd(char *s, int fd)
 		write(fd, s, 1);
 		s++;
 	}
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		if (n <= -10)
+			ft_putnbr_fd((n / -10), fd);
+		n = n % 10 * -1;
+	}
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10 + '0'), fd);
 }
 
 BOOLEAN	ft_puterr(void)

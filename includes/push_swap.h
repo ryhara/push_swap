@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:13:38 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/10 13:31:18 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/12 12:05:54 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ BOOLEAN	args_two_exe(char **argv);
 BOOLEAN	args_multi_exe(int argc, char **argv);
 
 void	ft_putstr_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 BOOLEAN	ft_puterr(void);
 BOOLEAN	ft_puterr_with_free(t_stack *stack);
 int		ft_atoi(const char *nptr);
