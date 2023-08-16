@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 11:25:18 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/16 10:14:50 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/16 12:17:22 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	get_list_size(char **num_list)
 	return (count);
 }
 
-static BOOLEAN	ft_puterr_free_list(char **num_list)
+static BOOLEAN	free_list(char **num_list)
 {
 	size_t	i;
 
@@ -33,10 +33,14 @@ static BOOLEAN	ft_puterr_free_list(char **num_list)
 		num_list[i] = NULL;
 		i++;
 	}
-	free(num_list[i]);
-	num_list = NULL;
 	free(num_list);
 	num_list = NULL;
+	return (TRUE);
+}
+
+static BOOLEAN	ft_puterr_free_list(char **num_list)
+{
+	free_list(num_list);
 	return (ft_puterr());
 }
 
@@ -55,7 +59,7 @@ BOOLEAN	args_two_exe(char **argv)
 	if (!check_duplicate(list_size, num_list))
 		return (ft_puterr_free_list(num_list));
 	if (list_size == 1)
-		return (TRUE);
+		return (free_list(num_list));
 	stack = node_list_init(list_size, num_list, 0);
 	if (!stack)
 		return (ft_puterr_with_free(stack));
@@ -63,6 +67,7 @@ BOOLEAN	args_two_exe(char **argv)
 	stack->size_a = stack->size;
 	stack->size_b = 0;
 	sort_select(stack);
+	free_list(num_list);
 	stack_free_all(stack);
 	return (TRUE);
 }
