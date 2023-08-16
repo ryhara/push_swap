@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 19:46:20 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/04 19:46:20 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/16 10:43:43 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ static void	insert_under_min_a(t_stack *stack, t_node *min_a)
 
 static void	insert_over_min_a(t_stack *stack, t_node *node, size_t count_a)
 {
-	if (stack->head_a->next->index > node->index
-		&& stack->head_a->prev->index < node->index)
+	if ((stack->head_a->next->index > node->index)
+		&& (stack->head_a->prev->index < node->index))
 			;
 	else if (count_a > stack->size_a / 2)
 	{
 		while (1)
 		{
-			if (stack->head_a->next->index > node->index
-				&& stack->head_a->prev->index < node->index)
+			if ((stack->head_a->next->index > node->index)
+				&& (stack->head_a->prev->index < node->index))
 				break ;
 			rra(stack->head_a);
 		}
@@ -69,8 +69,8 @@ static void	insert_over_min_a(t_stack *stack, t_node *node, size_t count_a)
 	{
 		while (1)
 		{
-			if (stack->head_a->next->index > node->index
-				&& stack->head_a->prev->index < node->index)
+			if ((stack->head_a->next->index > node->index)
+				&& (stack->head_a->prev->index < node->index))
 				break ;
 			ra(stack->head_a);
 		}

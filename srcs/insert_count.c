@@ -6,7 +6,7 @@
 /*   By: ryhara <ryhara@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:52:32 by ryhara            #+#    #+#             */
-/*   Updated: 2023/08/10 12:52:32 by ryhara           ###   ########.fr       */
+/*   Updated: 2023/08/16 10:43:14 by ryhara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static size_t	count_over_min_a(t_stack *stack, t_node *tmp_a, t_node *tmp_b)
 	size_t	count_a;
 
 	count_a = 0;
-	if (tmp_a->index > tmp_b->index
-		&& stack->head_a->prev->index < tmp_b->index)
+	if ((tmp_a->index > tmp_b->index)
+		&& (stack->head_a->prev->index < tmp_b->index))
 		count_a++;
 	else
 	{
@@ -81,6 +81,7 @@ t_node	*insert_count(t_stack *stack)
 	size_t	count_min;
 
 	tmp_b = stack->head_b->next;
+	count_min = stack->size;
 	while (tmp_b != stack->head_b)
 	{
 		tmp_a = stack->head_a->next;
